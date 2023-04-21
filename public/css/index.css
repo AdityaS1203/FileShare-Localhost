@@ -1,0 +1,197 @@
+body,html{
+  font-family: syste-ui;
+  background: #eff5fe;
+  height: 100%;
+  padding:0;
+  overflow: hidden;
+  margin:0;
+}
+
+body, .drop-zone,.upload-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.upload-container{
+  background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 20px 20px #0000002e;
+}
+.drop-zone{
+  width:500px;
+  min-height: 200px;
+  border: 2px dashed;
+  border-color: #0288d147;
+  margin: 20px;
+  border-radius: 10px;
+}
+.icon-container{
+  width: 75px;
+  height: 100px;
+  position: relative;
+}
+.icon-container img{
+  width:75px;
+  position: absolute;
+}
+/*after absolute, all images come one over the other .
+Now to make the image of class center appear at top we use z index*/
+.icon-container .center{
+  z-index: 2;
+}
+.icon-container .right , .icon-container .left{
+  filter:grayscale(0.5);
+}
+.dragged .icon-container .right{
+  transform: rotate(10deg) translateX(40px) translateY(0) scale(.9);
+  transform-origin: bottom;
+}
+.dragged .icon-container .left{
+  transform: rotate(-10deg) translateX(-40px) translateY(0) scale(.9);
+  transform-origin: bottom;
+}
+.dragged.drop-zone{
+  background: #eff5fe;
+}
+.browseBtn{
+  color:blue;
+  cursor:pointer;
+}
+#fileinput{
+  display:none;
+}
+.progress-container{
+  width: 500px;
+  height:70px;
+  border:2px solid #0288d147;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  position: relative; 
+  display: none;
+}
+.bg-progress{
+  background: #eff5fe;
+  width: 100%;
+  height: 100%;
+  transform-origin: left;
+  transition: width .25s linear;
+  position: absolute;
+  
+}
+ .progress-container .inner-container{
+  position: absolute;
+  z-index: 1;
+  margin: 10px 15px;
+  width:calc(100%);
+} 
+
+
+.percent-container{
+  font-size: 15px;
+  margin: 5px;
+  opacity: 0.8;
+}
+.progress-bar{
+  height:3px;
+  width:100%;
+  background: #03a9f4;
+  transform-origin: left;
+  border-radius: 2px;
+  transform: scaleX(0); 
+  transition: width .25s linear;
+}
+.sharing-container{
+  width: 500px;
+  display: none;
+}
+.input-container input{
+  width:100%;
+  border: 2px dashed #03a9f4;
+  border-radius: 6px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 15px;
+  background: #f5fcff;
+  color:#0000008c;
+}
+.hide{
+  display: block;
+}
+.sharing-container .input-container{
+  position: relative;
+}
+.input-container img{
+  position: absolute;
+  height:25px;
+  width:30px;
+  right:7px;
+  top:10px;
+  background: #f7fdff;
+  cursor:pointer;
+}
+p{
+  text-align: center;
+}
+.email-container{
+  display: flex;
+  align-items: center;
+  border: 2px solid   #0288d147;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+
+}
+form{
+  width: 100%;
+}
+.field{
+  display: flex;
+  justify-content: space-between;
+  margin: 2px 0;
+}
+label{
+  font-size: 18px;
+  margin: 5px 10px;
+}
+input{
+  font-size: 18px;
+  border: 0;
+  border-bottom: 2px solid  #0288d147 ;
+  text-align: center;
+    margin: 5px 10px;
+}
+input:focus{
+  outline: none;
+}
+button{
+  margin: 0 25%;
+  font-size: 18px;
+  padding: 8px 40px;
+  margin-top: 15px;
+  background: #eff5fe;
+  border: none;
+  border-radius: 5px;
+}
+.toast{
+  position: absolute;
+  bottom:10px;
+  left: 50%;
+  transform: translate(-50%,60px);
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: #03a9f4;
+  color: #fff;
+  font-size: 20px;
+  transition: transform ease-in-out 0.2s;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+   rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+@media screen and (max-width:900){
+  .field{
+    flex-direction: column;
+    width:300px;
+  }
+}
