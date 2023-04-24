@@ -27,7 +27,7 @@ router.post('/',(req,res)=>{
     upload(req,res,async(err)=>{
          //validate req
         if(!req.file){         //used to check whether we are getting a file or not through multer
-            return res.json({error:'all fields are required.'})
+            return res.json({error:'file upload to kr'})
         }
         if(err){
             res.status(500).send({error:err.message})
