@@ -52,7 +52,7 @@ router.post('/send',async(req,res)=>{
     //validate request
     const {uuid,emailTo,emailFrom}= req.body
     if(!uuid||!emailTo||!emailFrom){
-        return res.send({error:'All fields are required'})
+        return res.send({error:'mail waale ki dikkat hai'})
     }
     //get data from db
     const file=await File.findOne({uuid:uuid})
