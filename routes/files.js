@@ -24,7 +24,7 @@ let upload = multer({
 router.post('/',(req,res)=>{
     
     //store file (using multer)
-    upload.single(req,res,async(err)=>{
+    upload(req,res,async(err)=>{
          //validate req
         if(!req.file){         //used to check whether we are getting a file or not through multer
             return res.json({error:'all fields are required.'})
